@@ -41,6 +41,10 @@ namespace WinFormsApp1
             this.rbMonth = new System.Windows.Forms.RadioButton();
             this.rbYear = new System.Windows.Forms.RadioButton();
             this.gbInputDate = new System.Windows.Forms.GroupBox();
+            this.secondFIO = new System.Windows.Forms.TextBox();
+            this.firstFIO = new System.Windows.Forms.TextBox();
+            this.secondFIODate = new System.Windows.Forms.MaskedTextBox();
+            this.cbExtendForm = new System.Windows.Forms.CheckBox();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiAction = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +57,7 @@ namespace WinFormsApp1
             this.tsbCalculate = new System.Windows.Forms.ToolStripButton();
             this.tsbClearDate = new System.Windows.Forms.ToolStripButton();
             this.tsbClearResult = new System.Windows.Forms.ToolStripButton();
+            this.comboBox = new System.Windows.Forms.ComboBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -111,9 +116,9 @@ namespace WinFormsApp1
             this.gbCalculate.Controls.Add(this.rbDay);
             this.gbCalculate.Controls.Add(this.rbMonth);
             this.gbCalculate.Controls.Add(this.rbYear);
-            this.gbCalculate.Location = new System.Drawing.Point(4, 82);
+            this.gbCalculate.Location = new System.Drawing.Point(4, 259);
             this.gbCalculate.Name = "gbCalculate";
-            this.gbCalculate.Size = new System.Drawing.Size(250, 404);
+            this.gbCalculate.Size = new System.Drawing.Size(250, 227);
             this.gbCalculate.TabIndex = 1;
             this.gbCalculate.TabStop = false;
             this.gbCalculate.Text = "Расчитать количество";
@@ -186,20 +191,59 @@ namespace WinFormsApp1
             // 
             // gbInputDate
             // 
+            this.gbInputDate.Controls.Add(this.comboBox);
+            this.gbInputDate.Controls.Add(this.secondFIO);
+            this.gbInputDate.Controls.Add(this.firstFIO);
+            this.gbInputDate.Controls.Add(this.secondFIODate);
+            this.gbInputDate.Controls.Add(this.cbExtendForm);
             this.gbInputDate.Controls.Add(this.maskedTextBox);
             this.gbInputDate.Location = new System.Drawing.Point(4, 4);
             this.gbInputDate.Name = "gbInputDate";
-            this.gbInputDate.Size = new System.Drawing.Size(250, 79);
+            this.gbInputDate.Size = new System.Drawing.Size(250, 249);
             this.gbInputDate.TabIndex = 0;
             this.gbInputDate.TabStop = false;
             this.gbInputDate.Text = "Введите дату";
             // 
+            // secondFIO
+            // 
+            this.secondFIO.Location = new System.Drawing.Point(6, 125);
+            this.secondFIO.Name = "secondFIO";
+            this.secondFIO.Size = new System.Drawing.Size(238, 27);
+            this.secondFIO.TabIndex = 6;
+            // 
+            // firstFIO
+            // 
+            this.firstFIO.Location = new System.Drawing.Point(8, 59);
+            this.firstFIO.Name = "firstFIO";
+            this.firstFIO.Size = new System.Drawing.Size(236, 27);
+            this.firstFIO.TabIndex = 5;
+            // 
+            // secondFIODate
+            // 
+            this.secondFIODate.Location = new System.Drawing.Point(8, 92);
+            this.secondFIODate.Mask = "00/00/0000";
+            this.secondFIODate.Name = "secondFIODate";
+            this.secondFIODate.Size = new System.Drawing.Size(238, 27);
+            this.secondFIODate.TabIndex = 4;
+            this.secondFIODate.ValidatingType = typeof(System.DateTime);
+            // 
+            // cbExtendForm
+            // 
+            this.cbExtendForm.AutoSize = true;
+            this.cbExtendForm.Location = new System.Drawing.Point(8, 219);
+            this.cbExtendForm.Name = "cbExtendForm";
+            this.cbExtendForm.Size = new System.Drawing.Size(238, 24);
+            this.cbExtendForm.TabIndex = 3;
+            this.cbExtendForm.Text = "Доп. приколы 10-го варианта";
+            this.cbExtendForm.UseVisualStyleBackColor = true;
+            this.cbExtendForm.CheckedChanged += new System.EventHandler(this.cbExtendForm_CheckedChanged);
+            // 
             // maskedTextBox
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(6, 26);
+            this.maskedTextBox.Location = new System.Drawing.Point(8, 26);
             this.maskedTextBox.Mask = "00/00/0000";
             this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(238, 27);
+            this.maskedTextBox.Size = new System.Drawing.Size(236, 27);
             this.maskedTextBox.TabIndex = 0;
             this.maskedTextBox.ValidatingType = typeof(System.DateTime);
             // 
@@ -304,6 +348,17 @@ namespace WinFormsApp1
             this.tsbClearResult.Text = "Очистить результат";
             this.tsbClearResult.Click += new System.EventHandler(this.clearResult_Click);
             // 
+            // comboBox
+            // 
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Items.AddRange(new object[] {
+            "Старше",
+            "Младше"});
+            this.comboBox.Location = new System.Drawing.Point(8, 178);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(236, 28);
+            this.comboBox.TabIndex = 7;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -356,6 +411,11 @@ namespace WinFormsApp1
         private System.Windows.Forms.ToolStripButton tsbCalculate;
         private System.Windows.Forms.ToolStripButton tsbClearDate;
         private System.Windows.Forms.ToolStripButton tsbClearResult;
+        private System.Windows.Forms.TextBox secondFIO;
+        private System.Windows.Forms.TextBox firstFIO;
+        private System.Windows.Forms.MaskedTextBox secondFIODate;
+        private System.Windows.Forms.CheckBox cbExtendForm;
+        private System.Windows.Forms.ComboBox comboBox;
     }
 }
 
